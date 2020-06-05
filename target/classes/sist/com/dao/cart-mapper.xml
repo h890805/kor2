@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sist.com.bean.apple.cart">
+
+
+
+	<select id="adminLoginCheck" parameterType="java.lang.String"
+		resultType="java.lang.String">
+
+		select pw from ADMINPRODUCTMEMBER
+		where ID=#{value}
+	</select>
+
+	<select id="selectAdmin" resultType="adminPro"
+		parameterType="String">
+		select
+		p.ID,PK,PRODUCTNAME,PRODUCTPRICE,PRODUCTORIGIN,PRODUCTCATEGORY,FILENAME,REGDATE,
+		m.NAME SELLER
+		from ADMINPRODUCT p, ADMINPRODUCTMEMBER m
+		WHERE p.ID=m.ID
+		AND p.ID=#{VALUE}
+	</select>
+	
+	
+         
+
+	<insert id="insertProduct" parameterType="adminPro">
+		insert into ADMINPRODUCT
+		values(#{id},pk_seq.nextval,#{productName},#{productPrice},#{productOrigin},#{productCategory},#{fileName},sysdate)
+
+	</insert>
+
+
+	<delete id="deleteAdminProduct" parameterType="adminPro">
+		delete ADMINPRODUCT where pk=#{pk}
+	</delete>
+
+<select id="adminProductInfo" parameterType="int" resultType="adminPro">
+	select * from ADMINPRODUCT
+	where pk=#{value}
+</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
