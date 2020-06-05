@@ -71,7 +71,7 @@
 								
 									<tr>
 										<th scope="col">NO.</th>																				
-										<th scope="col">상품명</th>
+										<th scope="col">상품명명</th>
 										<th scope="col">이미지</th>
 										<th scope="col">원산지</th>
 										<th scope="col">가격</th>
